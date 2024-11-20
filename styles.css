@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f1d0dc;
+    margin: 0;
+    padding: 0;
+    color: #a73939;
+}
+
+header {
+    background-color: #a4d9eb;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+section {
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+
+/* Flexbox layout for main container */
+#main-container {
+    display: flex;
+/* Space between the two sections */
+    align-items: flex-start; /* Align items to the top */
+    
+    gap: 10px; /* Space between items */
+}
+
+/* Equal width for both sections */
+#main-container > div {
+    flex: 1; /* Take up equal space */
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: left;
+}
+
+input[type="number"] {
+    width: 40%;
+    padding: 16px;
+    font-size: 16px;
+}
+
+button {
+    width: 47.65%;
+    background-color: #b191d6;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #a191c6;
+}
+
+/* SVG styling */
+#triangle-svg {
+    width: 100%; /* Responsive to container width */
+    height: 100;
+}
+
+footer {
+    text-align: center;
+    background-color: #222;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}

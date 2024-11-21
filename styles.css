@@ -1,9 +1,11 @@
+/* General styles for body */
 body {
     font-family: Arial, sans-serif;
     background-color: #f1d0dc;
     margin: 0;
     padding: 0;
     color: #a73939;
+    box-sizing: border-box; /* Ensures padding and border don't affect width and height */
 }
 
 header {
@@ -18,21 +20,21 @@ section {
     padding: 20px;
     background-color: white;
     border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Add some shadow for a soft effect */
 }
-
 
 /* Flexbox layout for main container */
 #main-container {
     display: flex;
-/* Space between the two sections */
-    align-items: flex-start; /* Align items to the top */
-    
-    gap: 10px; /* Space between items */
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    gap: 20px; /* Space between items */
+    justify-content: space-between;
 }
 
-/* Equal width for both sections */
+/* Equal width for both sections on larger screens, stack on smaller ones */
 #main-container > div {
-    flex: 1; /* Take up equal space */
+    flex: 1 1 45%; /* 45% on larger screens */
+    min-width: 250px; /* Ensures that the div doesn't shrink too much on small screens */
 }
 
 /* Form styling */
@@ -44,19 +46,21 @@ form {
 }
 
 input[type="number"] {
-    width: 40%;
+    width: 100%; /* Full width of the container on small screens */
     padding: 16px;
     font-size: 16px;
+    box-sizing: border-box;
 }
 
 button {
-    width: 47.65%;
+    width: 100%; /* Full width of the container */
     background-color: #b191d6;
     color: white;
     padding: 10px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    font-size: 16px;
 }
 
 button:hover {
@@ -66,13 +70,55 @@ button:hover {
 /* SVG styling */
 #triangle-svg {
     width: 100%; /* Responsive to container width */
-    height: 100;
+    height: auto;
+    max-height: 300px; /* Limit max height */
 }
 
+/* Footer styling */
 footer {
     text-align: center;
     background-color: #222;
     color: white;
     padding: 10px;
     margin-top: 20px;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    /* On tablet and smaller screens, adjust form inputs and button */
+    input[type="number"], button {
+        width: 100%;
+    }
+
+    /* Adjust layout to stack form and SVG */
+    #main-container {
+        flex-direction: column; /* Stack vertically */
+        align-items: center; /* Center the items */
+    }
+
+    #main-container > div {
+        flex: 1 1 100%; /* Full width */
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    /* On mobile screens, adjust spacing and layout */
+    section {
+        padding: 15px; /* Less padding on mobile */
+    }
+
+    button {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    input[type="number"] {
+        font-size: 14px;
+    }
+
+    header {
+        font-size: 18px;
+        padding: 15px;
+    }
 }
